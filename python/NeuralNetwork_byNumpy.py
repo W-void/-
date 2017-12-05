@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Mon Dec  4 11:23:18 2017
 
+"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -87,6 +90,12 @@ def nnGradient(nn_params, x, y, hidden_layer_size):
     delta2 = np.zeros((m, hidden_layer_size))
     theta1_grad = np.zeros((theta1.shape))   # (401, hidden_layer_size)
     theta2_grad = np.zeros((theta2.shape))   # (hidden_layer_size+1, 10)
+    
+    delta3 = h - class_y
+    theta2_grad = np.dot(a2.T, delta3)
+    delta2 = np.dot(delta3, theta2[1:,:].T)*sigmoidGradient(z2)
+    theta1_grad = np.dot(a1.T, delta2)
+    '''
     for i in range(m):   # m 表示样本数
         delta3[i,:] = h[i,:] - class_y[i,:] # 就像逻辑回归的梯度为（y-h)*x/m
         # delta3[i,:].shape=(10,), a2[i,:].shape=(hidden_layer_size+1,)
@@ -95,6 +104,7 @@ def nnGradient(nn_params, x, y, hidden_layer_size):
         # (1,10) * (10, hidden_layer_size)
         delta2[i,:] = np.dot(delta3[i,:].reshape((1,-1)), theta2[1:,:].T)*sigmoidGradient(z2[i,:])
         theta1_grad = theta1_grad +  np.dot(a1[i,:].reshape((-1,1)), delta2[i,:].reshape((1,-1)))
+    '''
     
     '''正则化项'''
     theta1_ = theta1.copy()
