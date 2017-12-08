@@ -1,0 +1,2 @@
+假设误差服从均值为0的高斯分布，且是 IID，independently identically distributed ，独立同分布的
+求对数极大似然估计后，就是最小二乘法了，平方项就是高斯概率函数里的平方项
