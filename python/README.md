@@ -19,5 +19,5 @@ import collections
 Counter(a)会以键值对的形式返回a的概述
 Out[170]: Counter({1: 1, 2: 2, 4: 1, 5: 1})
 
-配合max函数求a中元素中出现次数最多的元素(keys)或次数(values)\n
+配合max函数求a中元素中出现次数最多的元素(keys)或次数(values)  
 max(Counter(a).values())
