@@ -39,3 +39,4 @@ int main()
 		}
 	}
 	printf("%d", maxLen[lenth1][lenth2]);
+}
