@@ -20,7 +20,7 @@ Data set 3: no
 int n;
 char a[500];
 char b[500];
-//char c[500];
+char c[500];
 
 
 int max(int a, int b)
