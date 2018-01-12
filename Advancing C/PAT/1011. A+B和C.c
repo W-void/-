@@ -1,4 +1,5 @@
 //long long读入用%lld, long读入用%ld
+////32位编译器long和int一样32b,64位编译器long和longlong一样64b
 /*
 1011. A+B和C (15)
 
