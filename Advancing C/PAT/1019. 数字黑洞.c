@@ -1,3 +1,5 @@
+//百度：printf格式控制
+// %04d 大法好
 /*
 1019. 数字黑洞 (20)
 
@@ -32,6 +34,34 @@
 2222
 输出样例2：
 2222 - 2222 = 0000
+#include<stdio.h>
+#include<stdlib.h>
+int cmp(void const* a, void const* b)
+{
+	return *(int *)a - *(int *)b;
+}
+
+int main()
+{
+	int n, m;
+	scanf("%d", &n);
+	int a[4], i;
+	do{
+		for(i=0; i<4; i++){
+			a[i] = n%10;
+			n /= 10;
+		}
+		qsort(a, 4, sizeof(int), cmp);
+		n=0, m=0;
+		for(i=0; i<4; i++){
+			m = m*10 + a[i];
+			n = n*10 + a[3-i];
+		}
+		printf("%04d - %04d = %04d\n", n, m, n-m);
+		n -= m;
+	}while(n!=0 && n!=6174);
+	return 0;
+}
 */
 #include<stdio.h>
 #include<stdlib.h>
