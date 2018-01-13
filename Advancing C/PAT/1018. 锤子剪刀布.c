@@ -1,4 +1,4 @@
-//%c读入数据应注意的问题
+//%c读入数据应注意的问题，空格可以忽略用户输入的空格回车等空白字符
 //一直有一个2分的测试点错误
 //%c输入数据存在的问题：http://www.icourse163.org/learn/HIT-69005?tid=1002224001#/learn/content?type=detail&id=1002961178&cid=1003430413&replay=true
 /*
@@ -53,8 +53,8 @@ int main()
 	int a1[3]={0};//记录甲每个手势的胜利次数
 	int b1[3]={0};
 	while(N--){
-		getchar();//连续的%c需要getchar回收回车，或将scanf的%c前面加一个空格，即将下一行改为scanf(" %c %c", &a, &b);
-		scanf("%c %c", &a, &b);
+		getchar();//连续的%c需要getchar回收回车，或将scanf的%c前面加一个空格，空格可以忽略用户输入的空格回车等空白字符
+		scanf("%c %c", &a, &b);//即将下一行改为scanf(" %c %c", &a, &b);
 		aa = change(a);
 		bb = change(b);
 		if(aa==bb)
