@@ -1,5 +1,6 @@
 //连续的%c需要getchar回收回车
 //一直有一个2分的测试点错误
+//%c输入数据存在的问题：http://www.icourse163.org/learn/HIT-69005?tid=1002224001#/learn/content?type=detail&id=1002961178&cid=1003430413&replay=true
 /*
 1018. 锤子剪刀布 (20)
 
