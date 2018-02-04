@@ -25,7 +25,7 @@ YrR8RrY
 No 2
 */
 #include<stdio.h>
-
+#include<string.h>
 int main()
 {
 	int a[200] = {0}, num=0;
