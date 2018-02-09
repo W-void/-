@@ -1,5 +1,6 @@
-// fscanf是真的方便
+// fscanf是真的方便，int a[N];这样定义数组是可以的，我的天！
 // 若不知道文件中有几组数据，可这样写：while (fscanf(fp, "%d", &num)!=EOF) //(EOF=-1)
+// 我把K当成每排站K个人了，谁让10/3也等于3呢！害得我找了一下午错
 /*
 1055. 集体照 (25)
 
@@ -64,7 +65,7 @@ int main()
 	int M, N;
 	//fscanf(fp, "%d%d", &M, &N);
 	scanf("%d%d", &M, &N);
-	struct student* stu = (struct student*)malloc(sizeof(struct student)*M);
+	struct student* stu = (struct student*)malloc(sizeof(struct student)*M);//好像是可以直接struct student* stu[M]的；
 	int i;
 	for(i=0; i<M; i++){
 		//fscanf(fp, "%s%d", stu[i].name, &stu[i].high);
@@ -75,18 +76,19 @@ int main()
 	int x = M%N + M/N, flag=1;//x表示第一行有几个数据
 	//将数据以最终顺序令存到stu2中，最后直接顺序输出stu2
 	for(i=0; i<x; i++){
-		strcpy(stu2[x/2+(i+1)/2*flag].name, stu[i].name);
-		stu2[x/2+(i+1)/2*flag].high = stu[i].high;
+		stu2[x/2+(i+1)/2*flag] = stu[i]; //可以将一个结构体直接赋值个另一个结构体
+		//strcpy(stu2[x/2+(i+1)/2*flag].name, stu[i].name);
+		//stu2[x/2+(i+1)/2*flag].high = stu[i].high;
 		flag  = -flag;//flag一正一负代表一左一右
 	}
 	
-	int y = N-1;//y表示除了第一行还有几行
+	int y = N-1, n=M/N;//y表示除了第一行还有几行
 	int j, k;
 	//将剩下的数据存入stu2
 	for(j=0; j<y; j++){
 		flag = 1;
-	    for(k=0; k<N; k++){
-	      	strcpy(stu2[x+j*N+N/2+(k+1)/2*flag].name, stu[i].name);
+	    for(k=0; k<n; k++){
+	      	strcpy(stu2[x+j*n+n/2+(k+1)/2*flag].name, stu[i].name);
 	      	//stu2[x+j*N+N/2+(k+1)/2*flag].high = stu[i].high;	
 	      	flag  = -flag, i++;
 	    }
@@ -98,8 +100,8 @@ int main()
 	}
 	printf("%s\n", stu2[i++].name);	
 	for(j=0; j<y; j++){
-		for(k=0; k<M/N; k++)
-			printf("%s%c", stu2[i++].name, k!=M/N-1?' ':'\n');
+		for(k=0; k<n; k++)
+			printf("%s%c", stu2[i++].name, k!=n-1?' ':'\n');
 		
 	}
 	//fclose(fp);
