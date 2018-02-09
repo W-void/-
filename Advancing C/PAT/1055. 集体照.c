@@ -72,7 +72,7 @@ int main()
 	}
 	qsort(stu, M, sizeof(stu[0]), cmp);//排序
 	struct student* stu2 = (struct student*)malloc(sizeof(struct student)*M);
-	int x = M%N + N, flag=1;//x表示第一行有几个数据
+	int x = M%N + M/N, flag=1;//x表示第一行有几个数据
 	//将数据以最终顺序令存到stu2中，最后直接顺序输出stu2
 	for(i=0; i<x; i++){
 		strcpy(stu2[x/2+(i+1)/2*flag].name, stu[i].name);
@@ -80,7 +80,7 @@ int main()
 		flag  = -flag;//flag一正一负代表一左一右
 	}
 	
-	int y = M/N-1;//y表示除了第一行还有几行
+	int y = N-1;//y表示除了第一行还有几行
 	int j, k;
 	//将剩下的数据存入stu2
 	for(j=0; j<y; j++){
@@ -97,12 +97,10 @@ int main()
 		printf("%s ", stu2[i].name);		
 	}
 	printf("%s\n", stu2[i++].name);	
-	for(; i<M; i++){
-		printf("%s", stu2[i].name);
-		if((i-x+1)%N==0)
-			printf("\n");
-		else
-			printf(" ");
+	for(j=0; j<y; j++){
+		for(k=0; k<M/N; k++)
+			printf("%s%c", stu2[i++].name, k!=M/N-1?' ':'\n');
+		
 	}
 	//fclose(fp);
 }
