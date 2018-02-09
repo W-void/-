@@ -1,4 +1,6 @@
-// 位操作
+// 位运算，isalpha, tolower
+//本来以为能想到位运算已经很好了，没想到看到了别人更简洁的代码，学海无涯啊
+//如果输入中没有字母的话，即N=0, 有0个0和0个1
 /*
 1057. 数零壹(20)
 
@@ -16,6 +18,23 @@ PAT (Basic)
 输出样例：
 3 4
 */
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+	char c;
+	int N=0;
+	while((c=getchar())!='\n')
+		if(isalpha(c))
+			N += tolower(c)-'a'+0;
+	int count[2] = {0};
+	while(N){
+		count[N&1]++;
+		N >>= 1;
+	}
+	printf("%d %d", count[0], count[1]);
+}
+/*
 #include<stdio.h>
 #include<string.h>
 int main()
@@ -39,3 +58,4 @@ int main()
 	}
 	printf("%d %d", s0, s1);
 }
+*/
