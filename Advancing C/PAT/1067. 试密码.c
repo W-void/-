@@ -40,13 +40,13 @@ Welcome in
 
 int main()
 {
-	char c1[30], c2[100], c3[]="#";
+	char c1[30], c2[100];
 	int N;
 	scanf("%s%d", c1, &N);
 	getchar();//这个getchar害了我半天！
 	while(N--){
 		gets(c2); //c2一定要开大一点
-		if(strcmp(c2, c3)==0) break;
+		if(strcmp(c2, "#")==0) break;
 		else if(strcmp(c2, c1)==0){
 			printf("Welcome in\n");
 			break;
