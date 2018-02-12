@@ -1,4 +1,4 @@
-// scanf、puts新用法;scanf也是有返回值的，返回的是符合输入条件的数值的个数;printf也有返回值，返回打印的字符数
+// scanf、puts新用法;scanf也是有返回值的，返回的是符合输入条件的数值的个数;printf也有返回值，返回打印的字符数，出错返回负数
 /*
 1010. 一元多项式求导 (25)
 
@@ -20,7 +20,7 @@ int main()
 {
 	int f=0;
 	int c, e;
-	for(;scanf("%d%d", &c, &e)==2;){
+	for(;scanf("%d%d", &c, &e)==2;){//文件结束scanf返回EOF，出错返回0
 		if(e){
 			printf(f?" %d %d":"%d %d", c*e, e-1);
 			f = 1;
