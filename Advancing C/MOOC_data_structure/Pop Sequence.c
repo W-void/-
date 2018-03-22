@@ -30,6 +30,7 @@ YES
 NO
 */
 #include<stdio.h>
+#include<stdlib.h> //自己电脑上需要这句话，PTA上不需要
 typedef struct snode* stack;
 struct snode{
   int *data;
