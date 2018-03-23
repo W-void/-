@@ -84,7 +84,7 @@ int main()
 				f = 0;
 			}
 			printf("%d", n);
-			f = 0;
+		
 		}
 		else{
 			if(t[n].left!=-1) addQ(q, t[n].left);
