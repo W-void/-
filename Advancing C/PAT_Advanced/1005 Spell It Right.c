@@ -23,7 +23,7 @@ int main()
   int i, sum = 0;
   for(i=0; s[i]; i++)
     sum += s[i] - '0';
-  sprintf(s, "%d", sum);
+  sprintf(s, "%d", sum);//就算sum=0也可以输出zero
   for(i=0; s[i]; i++)
     printf("%s%s", i?" ":"", c[s[i] - '0']);
 }
