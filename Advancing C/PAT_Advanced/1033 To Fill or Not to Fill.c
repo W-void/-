@@ -62,12 +62,8 @@ int main()
     if(k==-1) break;
     float need = (sta[k].d - sta[i].d)/avg;
     if(sta[k].p<sta[i].p){
-      if(nowTank<need){
-        price += sta[i].p * (need - nowTank);
-        nowTank = 0;
-      }
-      else{
-        nowTank -= need;
+      price += sta[i].p * (need - nowTank);
+      nowTank = 0;
       }
     }
     else{
