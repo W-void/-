@@ -1,4 +1,4 @@
-//很烦，牛客网能过，PAT有两个测试点过不去
+// 找到了那两个测试点不过的原因，没有考虑所有数都属于完美数列的情况 //很烦，牛客网能过，PAT有两个测试点过不去
 /*
 1030. 完美数列(25)
 
@@ -34,16 +34,17 @@ int main()
 	for(i=0; i<n; i++){
 		scanf("%d", a+i);
 	}
-	qsort(a, n, sizeof(int), cmp);
-	int M=a[0];
+	qsort(a, n, sizeof(int), cmp);//从大到小排序
+	long long  M=a[0];
 	int max=0, k=0;
 	for(i=0; i<n; i++){
-		if((long long)M>a[i]*p){
-			max = max>i-k?max:i-k;
+		if(M>a[i]*p){//若没有满足判断的，则max的值一直是0
+			max = max>i-k?max:i-k;//将这次的个数与以前的最大值比较，取大者
 			M=a[++k];
 			i--;
 		}
 	}
+	if(!max)  max = n;//max还是初始化时的0，证明所有的a[i]均满足a[0]<=a[i]*p;
 	printf("%d", max);
 	return 0;
 }
