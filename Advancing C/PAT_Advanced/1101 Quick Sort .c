@@ -48,5 +48,5 @@ int main()
   printf("%d\n", cnt);
   for(i=0; i<cnt; i++)  
     printf("%d%s", c[i], (i==cnt-1)?"":" ");
-  printf("\n");
+  printf("\n"); //空行是无论如何都要输出的
 }
