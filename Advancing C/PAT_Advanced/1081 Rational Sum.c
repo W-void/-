@@ -1,4 +1,11 @@
-//  虽然乘积可能超过int，但没有数据测这块，否则abs函数应该会出错
+//  虽然乘积可能超过int，但没有数据测这块，否则abs函数会出错
+/*  llabs()函数示例：
+        #include<stdio.h>
+        int main()
+        {
+                printf("%lld", llabs(-((long long)1<<32)));
+        } 
+ */
 /*
 1081 Rational Sum (20)（20 分）
 
