@@ -32,7 +32,6 @@ Sample Output:
 */
 #include<stdio.h>
 #include<algorithm>
-#include<string>
 #include<set>
 using namespace std;
 
