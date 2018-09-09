@@ -22,10 +22,32 @@ public:
         int n = s.length(), i, j, ans=0;
         for(i=0, j=0; j<n; j++){
             if(mp.find(s[j]) != mp.end()){
-                i = max(mp.find(s[j])->second + 1, i);
+                i = max(mp.find(s[j])->second + 1, i); //更新左端点
             }
             ans = max(j-i+1, ans);
-            mp[s[j]] = j; //若s[j]为重复的字符，则会更新其对应的下标
+            mp[s[j]] = j; //更新字符s[j]出现的下标
+        }
+        return ans;
+    }
+};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.length(), i, j, ans = 1;
+        if(n == 0){
+            return 0;
+        }
+        int *dp = new int[n]; //dp[i]存储以i结尾的无重复子串的左端点下标
+        fill(dp, dp+n, 0);
+        for(i=1; i<n; i++){
+            for(j=i-1; j>=dp[i-1]; j--){
+                if(s[j] == s[i]){
+                    break;
+                }
+            }
+            dp[i] = j + 1;
+            ans = max(ans, i - dp[i] + 1);
         }
         return ans;
     }
