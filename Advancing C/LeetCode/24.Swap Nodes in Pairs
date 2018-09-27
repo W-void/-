@@ -21,15 +21,11 @@ You may not modify the values in the list's nodes, only nodes itself may be chan
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        head = swap(head);
-        return head;
-    }
-    ListNode* swap(ListNode* first){
+        ListNode* first = head;
         if(!first || !first->next) return first;
         ListNode* second = first->next;
-        first->next = second->next;
+        first->next = swapPairs(second->next);
         second->next = first;
-        first->next = swap(first->next);
         return second;
     }
 };
