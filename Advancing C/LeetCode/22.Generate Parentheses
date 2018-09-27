@@ -1,0 +1,38 @@
+//DFS
+
+22.Generate Parentheses
+
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+[
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()"
+]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+class Solution {
+public:
+    vector<string> vt;
+    vector<string> generateParenthesis(int n) {
+        string s;
+        dfs(s, n, n);
+        return vt;
+    }
+    void dfs(string s, int a, int b){
+        if(b == 0) vt.push_back(s);
+        if(a){
+            s += '(';
+            dfs(s, a-1, b);
+            s.pop_back();
+        }
+        if(a < b){
+            s += ')';
+            dfs(s, a, b-1);
+            s.pop_back();
+        }
+    }
+};
