@@ -30,9 +30,14 @@ public:
             } 
         }
         if(!i) return NULL;
+        /*
         for(; fast->next != slow; fast = fast->next, i++); // 第二步：确定环中结点的个数，注意到此时slow、fast已经在环中
         fast = slow = head;
         while(i--) fast = fast->next; //第三步：先让fast往前走i步，然后fast、slow一起走，当fast和slow相遇时，即是入环的开始
+        */
+        slow = head; // 可以证明，第二步和第三步可以合为这一步。
+        //设起始点为A，入环的结点为B，slow和fast相遇于C，则A到C的路程等于C绕环一圈再回到C的路程。
+        //所以令slow=head，然后和fast一起走，将会相遇于B点。
         while(slow != fast){
             slow = slow->next;
             fast = fast->next;
