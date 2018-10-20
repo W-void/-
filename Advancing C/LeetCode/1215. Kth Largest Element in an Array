@@ -1,4 +1,5 @@
-// 经典题目：找出前k大的数
+// 经典题目：找出前k大的数.我的方法是建立一个k个元素的最小堆，当堆满后，将新来的元素与堆顶元素比较，比堆顶元素大就替换堆顶元素。
+// 也可以直接将原数组调整为最大堆，然后提出k次堆顶元素
 1215. Kth Largest Element in an Array
 
 Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
