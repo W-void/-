@@ -11,7 +11,33 @@
 
 输入: [0,1,0,2,1,0,1,3,2,1,2,1]
 输出: 6
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        if(height.size() < 3) return 0;
+        int ans = 0, left = height.front(), right = height.back();
+        int i = 1, j = height.size() - 2;
+        while(i <= j){
+            if(left < right){
+                if(left < height[i])
+                    left = height[i];
+                else
+                    ans += left - height[i];
+                i++;
+            }
+            else{
+                if(right < height[j])
+                    right = height[j];
+                else
+                    ans += right - height[j];
+                j--;
+            }
+        }
+        return ans;
+    }
+};
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 class Solution {
 public:
     int trap(vector<int>& height) {
