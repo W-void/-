@@ -29,6 +29,7 @@ public:
     }
     ListNode* mergeSort(ListNode* head){
         if(head->next == NULL) return head;
+        // head至少有两个结点
         ListNode* mid = findMid(head);
         ListNode* mid_next = mid->next;
         mid->next = NULL;
@@ -37,8 +38,8 @@ public:
         return merge(first, second);
     }
     ListNode* findMid(ListNode* head){
-        ListNode *slow = head, *fast = head;
-        while(fast->next && fast->next->next){
+        ListNode *fast = head->next, *slow = head;//fast = head会出错，因为当head有两个结点时，会返回第二个结点，从而陷入死循环
+        while(fast && fast->next){
             slow = slow->next;
             fast = fast->next->next;
         }
