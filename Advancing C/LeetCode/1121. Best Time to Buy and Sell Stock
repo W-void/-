@@ -23,10 +23,10 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int ans = 0, m = (1<<31) - 1, size = prices.size();
-        for(int i = 0; i < size; i++){
-            m = min(prices[i], m);
-            ans = max(ans, prices[i] - m);
+        int m = (1<<31)-1, ans = 0;
+        for(auto x : prices){
+            m = min(m, x);
+            ans = max(ans, x - m);
         }
         return ans;
     }
