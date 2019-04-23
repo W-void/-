@@ -28,6 +28,8 @@ public:
         }
         dp[i][i] = 1;
         for(l=3; l<=len; l++){
+            if(ans - l > 2)//差2才能退出，因为有奇偶。
+                    break;
             for(i=0; i<=len-l; i++){
                 j = i + l - 1;  
                 if(s[i] == s[j] && dp[i+1][j-1]){ 
@@ -35,8 +37,7 @@ public:
                     ans = l, ans_i = i;
                 }
             }
-            if(ans - l > 2)
-                break;
+            
         }
         return s.substr(ans_i, ans);
         /*
