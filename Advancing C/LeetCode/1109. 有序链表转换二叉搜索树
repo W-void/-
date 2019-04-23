@@ -42,7 +42,7 @@
  */
 class Solution {
 public:
-    TreeNode* sortedListToBST(ListNode* head) {
+    TreeNode* sortedListToBST(ListNode* head) {//快慢指针找链表中点
         if(!head) return NULL; 
         if(!head->next) return new TreeNode(head->val);
         ListNode *slow = head, *fast = head, *tmp = head;
