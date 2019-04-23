@@ -37,6 +37,6 @@ public:
         if(root == NULL)
             return 0;
         int l = minDepth(root->left), r = minDepth(root->right);
-        return l && r ? min(l, r) + 1 : 1 + l + r;
+        return l && r ? min(l, r) + 1 : 1 + l + r; //注意：若左子树与右子树中只有一个为空，返回的不应该是两者中最小的，而是不为空的那个子树的高度
     }
 };
