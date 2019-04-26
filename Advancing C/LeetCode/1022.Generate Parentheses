@@ -16,22 +16,22 @@ For example, given n = 3, a solution set is:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 class Solution {
 public:
-    vector<string> vt;
+    vector<string> ans;
+    string s;
     vector<string> generateParenthesis(int n) {
-        string s;
-        dfs(s, n, n);
-        return vt;
+        dfs(n, n);
+        return ans;
     }
-    void dfs(string s, int a, int b){
-        if(b == 0) vt.push_back(s);
-        if(a){
+    void dfs(int l, int r){
+        if(r == 0) ans.push_back(s);
+        if(l){
             s += '(';
-            dfs(s, a-1, b);
+            dfs(l-1, r);
             s.pop_back();
         }
-        if(a < b){
+        if(l < r){
             s += ')';
-            dfs(s, a, b-1);
+            dfs(l, r-1);
             s.pop_back();
         }
     }
